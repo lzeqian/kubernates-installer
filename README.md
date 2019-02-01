@@ -1,5 +1,6 @@
 # kubernates-installer
 简易化安装kubernates
+当前安装方式不适合正式环境，适合学习调试熟悉k8s，未添加安全认证功能
 ## 下载当前源码包
   ```bash
     git clone https://github.com/lzeqian/kubernates-installer.git
