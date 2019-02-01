@@ -1,10 +1,11 @@
 #!/bin/bash
 #如果是安装第一个参数必须指定本机ip地址
-IP=$1
+NODE_IP=$1
+MASTER_IP=$1
 #安装的服务名称
 SERVICE_NAME=kube-calico.service
 #etcd服务器地址
-ETCD_ENDPOINTS=http://$IP:2379
+ETCD_ENDPOINTS=http://$MASTER_IP:2379
 
 CONTAINNER_NAME=calico-node
 
@@ -137,7 +138,7 @@ ExecStart=/usr/bin/docker run --net=host --privileged --name=calico-node \
   -e FELIX_LOGSEVERITYSCREEN=info \
   -e FELIX_IPINIPMTU=1440 \
   -e FELIX_HEALTHENABLED=true \
-  -e IP=$IP \
+  -e IP=$NODE_IP \
   -v /var/run/calico:/var/run/calico \
   -v /lib/modules:/lib/modules \
   -v /run/docker/plugins:/run/docker/plugins \
@@ -175,8 +176,8 @@ elif [ "$1" == "off" ];then
 	chkConfig "off"		
 else
     paramCount=$#;
-	if [ $paramCount != 1 ];then
-	   echo 请输入1个参数 参数1是etcd安装主机ip 或者 start|stop|status|u
+	if [ $paramCount != 2 ];then
+	   echo 请输入2个参数，参数1是本机ip，参数2是etcd安装主机ip 或者 start|stop|status|u
 	   exit
 	fi
     install

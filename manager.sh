@@ -31,7 +31,7 @@ else
 	echo -----------步骤7. 部署Scheduler----------------
 	bash manager/scheduler.sh  $NODE_IP
 	echo -----------步骤8. 部署CalicoNode----------------
-	bash allnode/calico.sh  $MASTER_IP
+	bash allnode/calico.sh $MASTER_IP $MASTER_IP
 	echo -----------步骤9. 配置kubectl命令----------------
 	bash ./kubectl.sh $MASTER_IP
 fi
