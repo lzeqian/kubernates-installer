@@ -19,7 +19,7 @@ else
 	echo -----------步骤3. 设置系统参数 设置环境变量 可以执行执行各种命令----------------
 	source ./common.sh
 	echo -----------步骤4. 部署CalicoNode----------------
-	bash manager/calico.sh $MASTER_IP
+	bash allnode/calico.sh $MASTER_IP
 	echo -----------步骤5. 配置kubectl命令----------------
 	bash ./kubectl.sh $MASTER_IP
 	echo -----------步骤6. 配置kubelet（工作节点）----------------
