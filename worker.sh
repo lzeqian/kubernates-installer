@@ -17,7 +17,7 @@ else
 	echo -----------步骤2. 设置系统参数-----------------------------------------
 	bash pre/2.update_system_param.sh
 	echo -----------步骤3. 设置系统参数 设置环境变量 可以执行执行各种命令----------------
-	exec ./common.sh
+	source ./common.sh
 	echo -----------步骤4. 部署CalicoNode----------------
 	bash manager/calico.sh $MASTER_IP
 	echo -----------步骤5. 配置kubectl命令----------------
