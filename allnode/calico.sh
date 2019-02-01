@@ -47,6 +47,22 @@ function startCurrent(){
 	echo 启动$SERVICE_NAME
     systemctl start $SERVICE_NAME
 }
+#服务是否开机启动
+function chkConfig(){
+	statusCurrent
+	statusResult=$?
+	if [ $statusResult == 2 ];then
+		echo "$SERVICE_NAME服务未安装,无法设置"
+		exit
+	fi
+    if [ $1 == "on" ];then
+		echo "设置$SERVICE_NAME为开机启动"
+		systemctl enable $SERVICE_NAME
+	else
+	    echo "关闭$SERVICE_NAME为开机启动"
+		systemctl disable $SERVICE_NAME
+	fi
+}
 #卸载服务
 function unistall(){
 	$(statusCurrent)
@@ -153,6 +169,10 @@ elif [ "$1" == "u" ];then
 	unistall
 elif [ "$1" == "status" ];then	
 	sysoStatus	
+elif [ "$1" == "on" ];then	
+	chkConfig "on"
+elif [ "$1" == "off" ];then	
+	chkConfig "off"		
 else
     paramCount=$#;
 	if [ $paramCount != 1 ];then

@@ -5,7 +5,7 @@ if [ -z "$1" ];then
 	echo "必须配置参数1：本机ip,配置参数2：master机器ip 或者传入start|stop|u等命令"
 	exit
 fi
-if [ "$1" == "stop" -o "$1" == "start" -o "$1" == "u" -o "$1" == "status" ];then
+if [ "$1" == "stop" -o "$1" == "start" -o "$1" == "u" -o "$1" == "status" -o "$1" == "on" -o "$1" == "off"  ];then
 	bash allnode/calico.sh $1
 	bash worker/kublet.sh $1
 	if [ "$1" == "u" ];then

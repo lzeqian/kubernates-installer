@@ -6,7 +6,7 @@ if [ -z "$1" ];then
 	exit
 fi
 
-if [ "$1" == "stop" -o "$1" == "start" -o "$1" == "u" -o "$1" == "status" ];then
+if [ "$1" == "stop" -o "$1" == "start" -o "$1" == "u" -o "$1" == "status" -o "$1" == "on" -o "$1" == "off" ];then
 	bash manager/etcd.sh $1
 	bash manager/apiserver.sh $1
 	bash manager/controller.sh $1

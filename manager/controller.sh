@@ -30,7 +30,22 @@ function stopCurrent(){
 		systemctl stop $SERVICE_NAME
 	fi
 }
-
+#服务是否开机启动
+function chkConfig(){
+	statusCurrent
+	statusResult=$?
+	if [ $statusResult == 2 ];then
+		echo "$SERVICE_NAME服务未安装,无法设置"
+		exit
+	fi
+    if [ $1 == "on" ];then
+		echo "设置$SERVICE_NAME为开机启动"
+		systemctl enable $SERVICE_NAME
+	else
+	    echo "关闭$SERVICE_NAME为开机启动"
+		systemctl disable $SERVICE_NAME
+	fi
+}
 #停止服务
 function startCurrent(){
     statusCurrent
@@ -142,6 +157,10 @@ elif [ "$1" == "u" ];then
 	unistall
 elif [ "$1" == "status" ];then	
 	sysoStatus	
+elif [ "$1" == "on" ];then	
+	chkConfig "on"
+elif [ "$1" == "off" ];then	
+	chkConfig "off"			
 else
 	if [ -f /lib/systemd/system/$SERVICE_NAME ];then
 	    read -r -p "$SERVICE_NAME已安装 是否卸载,重新安装? [Y/n] " input
