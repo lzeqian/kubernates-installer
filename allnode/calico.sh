@@ -1,7 +1,7 @@
 #!/bin/bash
 #如果是安装第一个参数必须指定本机ip地址
 NODE_IP=$1
-MASTER_IP=$1
+MASTER_IP=$2
 #安装的服务名称
 SERVICE_NAME=kube-calico.service
 #etcd服务器地址
