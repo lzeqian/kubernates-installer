@@ -112,8 +112,8 @@ function statusCurrent(){
 }
 #安装服务
 function install(){
-if [ -z $IP ];then
-  "ip地址不能为空 启动请使用 apiserver.sh ip地址启动"
+if [ -z $NODE_IP -o -z $MASTER_IP ];then
+  echo "ip地址不能为空 启动请使用 apiserver.sh ip地址启动"
   exit
 fi
 echo 创建服务文件
@@ -177,7 +177,7 @@ elif [ "$1" == "off" ];then
 else
     paramCount=$#;
 	if [ $paramCount != 2 ];then
-	   echo 请输入2个参数，参数1是本机ip，参数2是etcd安装主机ip 或者 start|stop|status|u
+	   echo "请输入2个参数，参数1是本机ip，参数2是etcd安装主机ip 或者 start|stop|status|u"
 	   exit
 	fi
     install
