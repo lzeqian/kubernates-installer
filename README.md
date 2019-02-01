@@ -29,7 +29,7 @@
  
 
 ## 安装worker
-每一台worker进制执行
+每一台worker主机执行
 1. 进入clone的kubernates-installer目录
 2. 执行安装命令 
    ./worker.sh 本机ip masterip
