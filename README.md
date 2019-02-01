@@ -9,7 +9,8 @@
   
 ## 下载kubernate安装二进制文件
  k8s使用二进制方式安装，二进制包将近200M 下载地址：[百度盘](https://pan.baidu.com/s/11PVfCSjmIUKwftaQlQ3l1g)
-  将下载二进制包kubernetes-bins.tar.gz，拷贝到源码 soft目录。
+
+ 将下载二进制包kubernetes-bins.tar.gz，拷贝到源码 soft目录。
 
 注意：
 >1. 不能修改二进制名称。
