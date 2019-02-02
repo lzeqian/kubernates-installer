@@ -40,3 +40,18 @@
 - 查看所有manger服务状态 : ./worker.sh status
 - 启动/停止 manager所有服务 :./worker.sh start|stop
 - 卸载manager所有服务   ：./worker.sh u
+
+## 安装kube-proxy
+ kube-proxy提供service代理和负载均衡功能
+ 所有worker节点执行命令 
+```shell
+./worker/proxy.sh 当前workerip地址 masterip地址
+```
+## 安装kube-dns
+ 在主节点执行：   
+```shell
+./worker/dns.sh masterip地址
+```    
+    
+ 
+ 
