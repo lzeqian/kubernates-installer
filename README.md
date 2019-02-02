@@ -43,11 +43,14 @@
 
 ## 安装kube-proxy
  kube-proxy提供service代理和负载均衡功能
+ 
  所有worker节点执行命令 
 ```shell
 ./worker/proxy.sh 当前workerip地址 masterip地址
 ```
 ## 安装kube-dns
+ 提供pod节点间dns服务
+ 
  在主节点执行：   
 ```shell
 ./worker/dns.sh masterip地址
